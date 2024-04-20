@@ -26,9 +26,7 @@ def word(request):
         synonyms = "No synonyms found"
         antonyms = "No antonyms found"
         
-    print("Meaning:", meaning)
-    print("Synonyms:", synonyms)
-    print("Antonyms:", antonyms)
+    
 
     
     context = {
