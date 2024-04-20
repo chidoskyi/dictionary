@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block script %}
+{% comment %} <script src="{% static 'main.js' %}" defer></script> {% endcomment %}
+{% endblock script %}
+{% block content %}
+
+  
+
+  
+  <div class="container pt-5  section ">
+  <div class="row ">
+    <div class="h1 text-center pb-2">ENGLISH DICTIONARY</div>
+  </div>  
+  <div class="row ">
+  <div class="col">
+
+    <div class="card text-center">
+        <div class="card-header pt-2">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="true" href="#">Dictionary</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Login</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+            <form  action="{% url "word" %}">
+                {% comment %} {% csrf_token %} {% endcomment %}
+              <div class="mb-3">
+                <input type="text" value="{{search}}" class="py-2 form-control" name="search" id="exampleFormControlInput1" placeholder="Enter-a word-to-search">
+              </div>
+              <button type="submit" class="btn btnn px-4">Search Now</button>
+            </form>
+        </div>
+      </div>
+      <div class="row  mt-3  pb-2" >
+        <div class="col">
+            
+          <div class="h1 pb-2">Search Results</div>
+          <div class="h2 id=""">Meaning: {{ meaning }}</div>
+          <div class="h2 id=""">Synonyms: {{ synonyms }}</div>
+          <div class="h2 id="" pb-2">Antonyms: {{ antonyms }}</div>
+          
+            
+        </div>
+      </div> 
+  </div>
+  </div>
+  </div>
+  
+
+{% endblock content %}

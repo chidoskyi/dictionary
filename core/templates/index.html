@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block script %}
+{% comment %} <script src="{% static 'main.js' %}" defer></script> {% endcomment %}
+{% endblock script %}
+{% block content %}
+
+  
+
+  
+  <div class="container pt-5  section ">
+  <div class="row ">
+    <div class="h1 text-center pb-2">ENGLISH DICTIONARY</div>
+  </div>  
+  <div class="row ">
+  <div class="col">
+
+    <div class="card text-center">
+        <div class="card-header pt-2 flex">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="true" href="#">Dictionary</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Login</a>
+            </li>
+          </ul>
+          <div class="h5 text-light">User</div>
+        </div>
+        <div class="card-body">
+          {% comment %} <h5 class="card-title">Special title treatment</h5> {% endcomment %}
+          <form  action="{% url "word" %}">
+            {% comment %} {% csrf_token %} {% endcomment %}
+          <div class="mb-3">
+            {% comment %} <label for="exampleFormControlInput1" class="form-label">Input a word</label> {% endcomment %}
+            <input type="text" class="py-2 form-control" name="search" id="exampleFormControlInput1" placeholder="Enter-a word-to-search">
+          </div>
+          <button type="submit" class="btn btnn px-4">Search Now</button>
+        </form>
+        </div>
+      </div>
+        {% comment %} <div class="row  mt-3  pb-2" style="border: 1px solid #212529;">
+            <div class="col">
+                
+                <div class="h1 text-center pb-2"> Search Results</div>
+                <div class="h2 id=""  "> Meaning: meaning will be here</div>
+                <div class="h2 id=""  "> Synonyms: will be here</div>
+                <div class="h2 id=""  pb-2"> Antonyms: will be here</div>
+                
+            </div> {% endcomment %}
+      </div> 
+  </div>
+  </div>
+  </div>
+  
+
+{% endblock content %}
