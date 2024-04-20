@@ -14,13 +14,22 @@ def word(request):
     
     # Get the meaning of the word
     meaning = dictionary.meaning('en', search)
-    # The meaning method returns a tuple, where the second element is the actual meaning
-    meaning_text = meaning[1]if meaning else "No meaning found"
-    # 
+    meaning_text = meaning[1] if meaning else "No meaning found"
     
     # Get synonyms and antonyms
     synonyms = dictionary.synonym('en', search)
     antonyms = dictionary.antonym('en', search)
+    
+    # Check if results are empty or None
+    if not meaning_text or not synonyms or not antonyms:
+        meaning_text = "No meaning found"
+        synonyms = "No synonyms found"
+        antonyms = "No antonyms found"
+        
+    print("Meaning:", meaning)
+    print("Synonyms:", synonyms)
+    print("Antonyms:", antonyms)
+
     
     context = {
         'meaning': meaning_text,
